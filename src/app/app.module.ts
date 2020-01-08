@@ -9,6 +9,7 @@ import { HighLightDirective } from './highlight.directive';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
@@ -19,7 +20,9 @@ const appRoute: Routes = [
       { path: ':id', component: RecipeCellComponent }
     ]
   },
-  { path: 'recipe/:id', component: RecipeCellComponent }
+  { path: 'recipe/:id', component: RecipeCellComponent },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({
@@ -29,7 +32,8 @@ const appRoute: Routes = [
     RecipeCellComponent,
     HighLightDirective,
     HomeComponentComponent,
-    RecipesComponent
+    RecipesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
