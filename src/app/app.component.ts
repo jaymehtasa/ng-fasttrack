@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Recipe } from './recipe';
+import { LoggingService } from './logging.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [LoggingService]
 })
 export class AppComponent {
   recipes = [];
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
     this.recipes = [
       {
         name: 'Burger',
@@ -40,5 +42,6 @@ export class AppComponent {
 
   onRecipeCreated(event: Recipe) {
     this.recipes.push(event);
+    this.loggingService.log('New Recipe created');
   }
 }
