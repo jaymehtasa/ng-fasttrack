@@ -12,7 +12,8 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'home', component: HomeComponentComponent },
-  { path: 'add-new', component: NewRecipeComponent }
+  { path: 'add-new', component: NewRecipeComponent },
+  { path: 'recipe/:id', component: RecipeCellComponent }
 ];
 
 @NgModule({

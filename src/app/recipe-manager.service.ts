@@ -37,4 +37,8 @@ export class RecipeManagerService {
     this.recipes.push(recipe);
     this.loggingService.log('recipe added');
   }
+
+  getRecipe(byId: number) {
+    return this.recipes[byId];
+  }
 }

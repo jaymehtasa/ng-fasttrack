@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { RecipeManagerService } from '../recipe-manager.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-cell',
@@ -7,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class RecipeCellComponent implements OnInit {
   @Input() recipe;
-  constructor() { }
+  constructor(
+    private recipeManagerService: RecipeManagerService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.params.id;
+    this.recipe = this.recipeManagerService.getRecipe(id);
   }
-
 }
