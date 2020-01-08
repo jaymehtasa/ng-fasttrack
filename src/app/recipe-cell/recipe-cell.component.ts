@@ -17,5 +17,8 @@ export class RecipeCellComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.params.id;
     this.recipe = this.recipeManagerService.getRecipe(id);
+    this.route.params.subscribe((params) => {
+      this.recipe = this.recipeManagerService.getRecipe(params.id);
+    });
   }
 }
