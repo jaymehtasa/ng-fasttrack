@@ -8,11 +8,13 @@ import { RecipeCellComponent } from './recipe-cell/recipe-cell.component';
 import { HighLightDirective } from './highlight.directive';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponentComponent } from './home-component/home-component.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'home', component: HomeComponentComponent },
   { path: 'add-new', component: NewRecipeComponent },
+  { path: 'recipes', component: RecipesComponent },
   { path: 'recipe/:id', component: RecipeCellComponent }
 ];
 
@@ -22,7 +24,8 @@ const appRoute: Routes = [
     NewRecipeComponent,
     RecipeCellComponent,
     HighLightDirective,
-    HomeComponentComponent
+    HomeComponentComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,

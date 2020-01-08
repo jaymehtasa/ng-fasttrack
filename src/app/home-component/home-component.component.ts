@@ -22,6 +22,7 @@ export class HomeComponentComponent implements OnInit {
   }
 
   onAddNewClicked() {
-    this.router.navigate(['/add-new']);
+    // this.router.navigate(['/add-new']);
+    this.router.navigate(['/recipes'], { queryParams: { vegOnly: '1' } });
   }
 }

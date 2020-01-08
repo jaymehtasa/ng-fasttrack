@@ -1,0 +1,8 @@
+<div class="mt-3">
+  <h3> My Recipes 🍗🍛</h3>
+  <div class="row hidden-md-up" *ngIf="recipes.length; else norec">
+    <div class="col-md-4" *ngFor="let recipe of recipes">
+      <app-recipe-cell [recipe]="recipe"></app-recipe-cell>
+    </div>
+  </div>
+</div>

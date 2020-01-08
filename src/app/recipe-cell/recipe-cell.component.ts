@@ -19,10 +19,12 @@ export class RecipeCellComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
-    this.recipe = this.recipeManagerService.getRecipe(id);
-    this.paramSubs = this.route.params.subscribe((params) => {
-      this.recipe = this.recipeManagerService.getRecipe(params.id);
-    });
+    if (id) {
+      this.recipe = this.recipeManagerService.getRecipe(id);
+      this.paramSubs = this.route.params.subscribe((params) => {
+        this.recipe = this.recipeManagerService.getRecipe(params.id);
+      });
+    }
   }
 
   ngOnDestroy() {
