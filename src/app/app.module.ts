@@ -14,7 +14,11 @@ const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'home', component: HomeComponentComponent },
   { path: 'add-new', component: NewRecipeComponent },
-  { path: 'recipes', component: RecipesComponent },
+  {
+    path: 'recipes', component: RecipesComponent, children: [
+      { path: ':id', component: RecipeCellComponent }
+    ]
+  },
   { path: 'recipe/:id', component: RecipeCellComponent }
 ];
 
