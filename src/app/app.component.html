@@ -1,5 +1,9 @@
 <div class="container mt-3">
   Header
+  <ul>
+    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</li>
+    <li routerLink="/add-new" routerLinkActive="active">Add New</li>
+  </ul>
   <router-outlet></router-outlet>
   Footer
 </div>
