@@ -5,11 +5,12 @@ import { NewRecipeComponent } from './new-recipe/new-recipe.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeCellComponent } from './recipe-cell/recipe-cell.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AuthGuard } from './auth-guard.service';
 
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
   { path: 'home', component: HomeComponentComponent },
-  { path: 'add-new', component: NewRecipeComponent },
+  { path: 'add-new', component: NewRecipeComponent, canActivate: [AuthGuard] },
   {
     path: 'recipes', component: RecipesComponent, children: [
       { path: ':id', component: RecipeCellComponent }
