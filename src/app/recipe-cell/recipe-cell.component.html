@@ -1,0 +1,11 @@
+<div class="card mb-3" style="width: 18rem;" appHighLight>
+  <img class="card-img-top" [src]="recipe.image" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{recipe.name}} <span class="nv" *ngIf="recipe.type == 'nv'"></span></h5>
+    <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+      has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+      type and scrambled it to make a type.</p>
+    <p>👨‍🍳 {{recipe.chef}}</p>
+    <a href="#" class="btn btn-primary">Open</a>
+  </div>
+</div>
