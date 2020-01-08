@@ -11,6 +11,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
+  { path: 'home', component: HomeComponentComponent },
   { path: 'add-new', component: NewRecipeComponent }
 ];
 

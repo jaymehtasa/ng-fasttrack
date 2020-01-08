@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from '../recipe';
 import { RecipeManagerService } from '../recipe-manager.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-new-recipe',
@@ -15,7 +17,7 @@ export class NewRecipeComponent implements OnInit {
   name;
   type;
   image;
-  constructor(private recipeManagerService: RecipeManagerService) { }
+  constructor(private recipeManagerService: RecipeManagerService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -26,5 +28,9 @@ export class NewRecipeComponent implements OnInit {
       image: this.image,
       type: this.type
     });
+  }
+
+  onHomeClicked() {
+    this.router.navigate(['home'], { relativeTo: this.route });
   }
 }
