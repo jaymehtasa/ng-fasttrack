@@ -6,6 +6,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeCellComponent } from './recipe-cell/recipe-cell.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AuthGuard } from './auth-guard.service';
+import { RecipeResolver } from './recipes/recipe-resolver.service';
 
 const appRoute: Routes = [
   { path: '', component: HomeComponentComponent },
@@ -13,7 +14,7 @@ const appRoute: Routes = [
   { path: 'add-new', component: NewRecipeComponent, canActivate: [AuthGuard] },
   {
     path: 'recipes', component: RecipesComponent, canActivateChild: [AuthGuard], children: [
-      { path: ':id', component: RecipeCellComponent }
+      { path: ':id', component: RecipeCellComponent, resolve: { recipe: RecipeResolver } }
     ]
   },
   { path: 'recipe/:id', component: RecipeCellComponent },
@@ -25,6 +26,4 @@ const appRoute: Routes = [
   imports: [RouterModule.forRoot(appRoute)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

@@ -1,5 +1,5 @@
 export class AuthService {
-  private isLoggedIn = false;
+  private isLoggedIn = true;
 
   isAuthenticated() {
     // return new Promise((resolve, reject) => {
