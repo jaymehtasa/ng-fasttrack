@@ -10,20 +10,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const appRoute: Routes = [
-  { path: '', component: HomeComponentComponent },
-  { path: 'home', component: HomeComponentComponent },
-  { path: 'add-new', component: NewRecipeComponent },
-  {
-    path: 'recipes', component: RecipesComponent, children: [
-      { path: ':id', component: RecipeCellComponent }
-    ]
-  },
-  { path: 'recipe/:id', component: RecipeCellComponent },
-  { path: 'not-found', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/not-found' }
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +25,7 @@ const appRoute: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoute)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
