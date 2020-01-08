@@ -12,7 +12,7 @@ const appRoute: Routes = [
   { path: 'home', component: HomeComponentComponent },
   { path: 'add-new', component: NewRecipeComponent, canActivate: [AuthGuard] },
   {
-    path: 'recipes', component: RecipesComponent, children: [
+    path: 'recipes', component: RecipesComponent, canActivateChild: [AuthGuard], children: [
       { path: ':id', component: RecipeCellComponent }
     ]
   },
