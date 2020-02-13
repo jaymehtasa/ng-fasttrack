@@ -22,7 +22,9 @@ export class NewRecipeComponent implements OnInit {
   constructor(private recipeManagerService: RecipeManagerService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.form = new FormGroup({});
+    this.form = new FormGroup({
+
+    });
   }
 
   onAddRecipeClicked() {
