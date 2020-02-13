@@ -3,7 +3,7 @@ import { Recipe } from '../recipe';
 import { RecipeManagerService } from '../recipe-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-recipe',
@@ -23,15 +23,15 @@ export class NewRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(null),
-      chef: new FormControl(null),
+      name: new FormControl(null, Validators.required),
+      chef: new FormControl(null, [Validators.required, Validators.maxLength(30), Validators.minLength(3)]),
       image: new FormControl(null),
       type: new FormControl(null),
     });
   }
 
   onSave() {
-    console.log(this.form.value);
+    console.log(this.form);
   }
 
   onAddRecipeClicked() {
