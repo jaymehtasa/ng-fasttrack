@@ -30,6 +30,10 @@ export class NewRecipeComponent implements OnInit {
     });
   }
 
+  onSave() {
+    console.log(this.form.value);
+  }
+
   onAddRecipeClicked() {
     this.recipeManagerService.addRecipe({
       name: this.name,

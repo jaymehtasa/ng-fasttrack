@@ -1,6 +1,6 @@
 <div>
-  <form [formGroup]="form">
-    <button (click)="onHomeClicked()">Home</button>
+  <button (click)="onHomeClicked()">Home</button>
+  <form [formGroup]="form" (submit)="onSave()">
     <h3> Add new Recipe 🍗🍛</h3>
     <div class="form-group">
       <label>Name</label>
@@ -18,6 +18,6 @@
       <label>Veg / Non-Veg?</label>
       <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗" formControlName="type">
     </div>
-    <button type="button" class="btn btn-primary" (click)="onAddRecipeClicked()">Add Recipe</button>
+    <button type="submit" class="btn btn-primary">Add Recipe</button>
   </form>
 </div>
