@@ -23,6 +23,13 @@
     <div class="form-group">
       <label>Veg / Non-Veg?</label>
       <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗" formControlName="type">
+      <span class="text-muted" *ngIf="form.get('type').touched && 
+          !form.get('type').valid && form.get('type').errors['required']">Please enter
+        type</span>
+
+      <span class="text-muted" *ngIf="form.get('type').touched && 
+          !form.get('type').valid && form.get('type').errors['validRecipeType']">Please enter
+        valid recipe type</span>
     </div>
 
     <div formArrayName="ingredients">

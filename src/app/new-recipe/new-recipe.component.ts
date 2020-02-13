@@ -30,7 +30,7 @@ export class NewRecipeComponent implements OnInit {
         email: new FormControl(null, Validators.required),
       }),
       image: new FormControl(null),
-      type: new FormControl(null, CustomValidators.validRecipeType),
+      type: new FormControl(null, [Validators.required, CustomValidators.validRecipeType]),
       ingredients: new FormArray([])
     });
   }
