@@ -33,6 +33,14 @@ export class NewRecipeComponent implements OnInit {
       type: new FormControl(null, [Validators.required, CustomValidators.validRecipeType]),
       ingredients: new FormArray([])
     });
+
+    this.form.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+
+    this.form.statusChanges.subscribe((status) => {
+      console.log(status);
+    });
   }
 
   addIngredient() {
