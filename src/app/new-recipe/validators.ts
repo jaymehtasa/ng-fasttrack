@@ -8,4 +8,16 @@ export class CustomValidators {
     }
     return null;
   }
+
+  static validRecipeName(control: AbstractControl): Promise<ValidationErrors | null> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'Dalwada') {
+          resolve({ validRecipeName: true });
+        } else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+  }
 }

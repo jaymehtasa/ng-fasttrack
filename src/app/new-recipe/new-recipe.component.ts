@@ -24,7 +24,7 @@ export class NewRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      name: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required, CustomValidators.validRecipeName),
       chef: new FormGroup({
         name: new FormControl(null, Validators.required),
         email: new FormControl(null, Validators.required),
