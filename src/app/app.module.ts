@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
@@ -30,7 +31,8 @@ import { LoggingService } from './logging.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard, AuthService, RecipeResolver, RecipeManagerService, LoggingService],
   bootstrap: [AppComponent]
