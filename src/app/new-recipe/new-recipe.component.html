@@ -24,6 +24,16 @@
       <label>Veg / Non-Veg?</label>
       <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗" formControlName="type">
     </div>
+
+    <div formArrayName="ingredients">
+      <button class="btn btn-primary" (click)="addIngredient()">Add Ingredient</button>
+      <div *ngFor="let control of form.get('ingredients').controls; let i = index">
+        <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗" [formControlName]="i">
+        <span class="text-muted"
+          *ngIf="form.get('ingredients').controls[i].touched && !form.get('ingredients').controls[i].valid">Please enter
+          ingredients</span>
+      </div>
+    </div>
     <button type="submit" class="btn btn-primary">Add Recipe</button>
   </form>
 </div>

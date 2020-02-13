@@ -3,7 +3,7 @@ import { Recipe } from '../recipe';
 import { RecipeManagerService } from '../recipe-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-new-recipe',
@@ -30,7 +30,13 @@ export class NewRecipeComponent implements OnInit {
       }),
       image: new FormControl(null),
       type: new FormControl(null),
+      ingredients: new FormArray([])
     });
+  }
+
+  addIngredient() {
+    const control = new FormControl(null, Validators.required);
+    (this.form.get('ingredients') as FormArray).push(control);
   }
 
   onSave() {
