@@ -4,6 +4,7 @@ import { RecipeManagerService } from '../recipe-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { CustomValidators } from './validators';
 
 @Component({
   selector: 'app-new-recipe',
@@ -29,7 +30,7 @@ export class NewRecipeComponent implements OnInit {
         email: new FormControl(null, Validators.required),
       }),
       image: new FormControl(null),
-      type: new FormControl(null),
+      type: new FormControl(null, CustomValidators.validRecipeType),
       ingredients: new FormArray([])
     });
   }
