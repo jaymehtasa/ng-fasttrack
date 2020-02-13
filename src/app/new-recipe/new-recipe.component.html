@@ -4,19 +4,19 @@
     <h3> Add new Recipe 🍗🍛</h3>
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" placeholder="Recipe name 🥣">
+      <input type="text" class="form-control" placeholder="Recipe name 🥣" formControlName="name">
     </div>
     <div class="form-group">
       <label>Chef</label>
-      <input type="text" class="form-control" placeholder="Name of Chef 👨‍🍳">
+      <input type="text" class="form-control" placeholder="Name of Chef 👨‍🍳" formControlName="chef">
     </div>
     <div class="form-group">
       <label>Image</label>
-      <input type="text" class="form-control" placeholder="Image of Food 🎑">
+      <input type="text" class="form-control" placeholder="Image of Food 🎑" formControlName="image">
     </div>
     <div class="form-group">
       <label>Veg / Non-Veg?</label>
-      <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗">
+      <input type="text" class="form-control" placeholder="Is it veg 🥦 or non-veg 🍗" formControlName="type">
     </div>
     <button type="button" class="btn btn-primary" (click)="onAddRecipeClicked()">Add Recipe</button>
   </form>

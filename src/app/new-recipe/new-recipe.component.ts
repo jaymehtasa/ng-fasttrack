@@ -3,7 +3,7 @@ import { Recipe } from '../recipe';
 import { RecipeManagerService } from '../recipe-manager.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-recipe',
@@ -23,7 +23,10 @@ export class NewRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-
+      name: new FormControl(null),
+      chef: new FormControl(null),
+      image: new FormControl(null),
+      type: new FormControl(null),
     });
   }
 
