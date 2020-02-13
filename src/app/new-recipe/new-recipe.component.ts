@@ -34,6 +34,21 @@ export class NewRecipeComponent implements OnInit {
       ingredients: new FormArray([])
     });
 
+    this.form.setValue({
+      name: 'Dalwada',
+      chef: {
+        name: 'JM',
+        email: 'jm@test.com'
+      },
+      image: '',
+      type: 'veg',
+      ingredients: []
+    });
+
+    this.form.patchValue({
+      name: 'Dalwada by JM'
+    });
+
     this.form.valueChanges.subscribe((value) => {
       console.log(value);
     });
