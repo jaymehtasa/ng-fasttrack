@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { CustomValidators } from './validators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-recipe',
@@ -20,7 +21,11 @@ export class NewRecipeComponent implements OnInit {
   type;
   image;
   form: FormGroup;
-  constructor(private recipeManagerService: RecipeManagerService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private recipeManagerService: RecipeManagerService, private router: Router,
+    private route: ActivatedRoute,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -56,6 +61,11 @@ export class NewRecipeComponent implements OnInit {
     this.form.statusChanges.subscribe((status) => {
       console.log(status);
     });
+
+    this.http.get('https://reqres.in/api/users')
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 
   addIngredient() {
@@ -65,6 +75,15 @@ export class NewRecipeComponent implements OnInit {
 
   onSave() {
     console.log(this.form);
+    this.http.post('https://reqres.in/api/users', {
+      id: 1,
+      email: 'george.bluth@reqres.in',
+      first_name: 'George',
+      last_name: 'Bluth',
+      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg'
+    }).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   onAddRecipeClicked() {

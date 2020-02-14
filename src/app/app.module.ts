@@ -18,6 +18,8 @@ import { RecipeResolver } from './recipes/recipe-resolver.service';
 import { RecipeManagerService } from './recipe-manager.service';
 import { LoggingService } from './logging.service';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { LoggingService } from './logging.service';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
