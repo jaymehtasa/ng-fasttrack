@@ -67,7 +67,15 @@ export class NewRecipeComponent implements OnInit {
         console.log(res);
       });
 
-    this.http.get('https://reqres.in/api/unknown/23')
+    this.http.get('https://reqres.in/api/unknown/23', {
+      headers: {
+        'x-auth-token': 'abc=xyz'
+      },
+      params: {
+        q: 'dal'
+      },
+      observe: 'response'
+    })
       .subscribe((res) => {
         console.log(res);
       }, (error) => {
