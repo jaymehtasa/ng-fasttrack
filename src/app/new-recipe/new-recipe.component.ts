@@ -66,6 +66,13 @@ export class NewRecipeComponent implements OnInit {
       .subscribe((res) => {
         console.log(res);
       });
+
+    this.http.get('https://reqres.in/api/unknown/23')
+      .subscribe((res) => {
+        console.log(res);
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   addIngredient() {
